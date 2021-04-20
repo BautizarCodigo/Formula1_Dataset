@@ -28,7 +28,7 @@ class formulaOneData:
 
 
 
-        #Drop Columns not needed
+        #Drop Columns not needed in the Merged Dataset
         data = data.drop(['lat', 'lng', 'round', 'grid', 'url_x', 'statusId', 'driverId', 'constructorId',
                           'number', 'grid', 'alt', 'positionText', 'positionOrder', 'points',
                           'fastestLap', 'rank', 'milliseconds', 'resultId','url_y'],
