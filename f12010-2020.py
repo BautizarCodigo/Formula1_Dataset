@@ -66,7 +66,7 @@ class formulaOneData:
         '''Barplot Categorical'''
         sns.barplot(x='country',y='fastestLapSpeed', data=test_series)
 
-        plt.xticks(rotation=70)
+        plt.xticks(rotation=70) #Rotates the x Labels
         plt.tight_layout()
         plt.show()
 
