@@ -1,0 +1,11 @@
+#Source
+
+Dateset got from https://ergast.com/mrd/
+The Ergast Developer API is a web service which provides a historical record of motor racing data for non-commercial purposes.
+Please read the terms and conditions of use.
+The API provides data for the Formula One series, from the beginning of the world championships in 1950.
+For this project I will be concentrating for the decade between 2010 and 2020
+
+http://ergast.com/docs/f1db_user_guide.txt
+
+       
