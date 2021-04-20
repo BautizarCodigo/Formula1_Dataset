@@ -39,42 +39,38 @@ class formulaOneData:
         data['fastestLapSpeed'] = data['fastestLapSpeed'].replace('\\N', np.nan)
         data['fastestLapSpeed'] = data['fastestLapSpeed'].astype(float)
         data['Dates'] = pd.to_datetime(data['date'], format='%Y-%m-%d')
-
         data['Year'] = pd.to_datetime(data['year'], format='%Y')
-        print(data['Year'])
-
-        #print(data['Year'])
-        #print(type(data['Year']))
-
-
-        test_series= data[['circuitId','raceId','Year', 'laps', 'fastestLapSpeed', 'Dates']]
-        #print(test_series)
-
-
-        #print(data.dtypes)
-        #print(type(data['fastestLapTime'].iloc[1]))
-
-        x = test_series['fastestLapSpeed']
-        y = test_series['Year']
-
-        sns.jointplot(x,y, )
-
-        #print(test_series['Year'])
 
 
 
-        #Boxplot Chart
-        #sns.boxplot(x=data["fastestLapSpeed"])
+        #Series to Model
+        test_series = data[['circuitId','raceId','Year', 'laps', 'fastestLapSpeed', 'Dates', 'country']]
+        print(test_series.dtypes)
+        print(test_series.describe())
+        print(test_series)
 
-        #Scatter Chart
-        #sns.scatterplot(data=data, x="circuitId", y="fastestLapSpeed", hue='circuitId')
 
-        #
-        # sns.catplot(data=data, kind="bar",
-        #     x="circuitId", y="fastestLapSpeed", palette="dark", alpha=.6, height=6
-        # )
+        '''Distribution Plot'''
+        #sns.distplot(test_series['fastestLapSpeed'], bins=30)
 
+        '''Jointplot'''
+        # sns.jointplot(x='laps', y='fastestLapSpeed', data=test_series, kind="hex")
+        # sns.jointplot(x='laps', y='fastestLapSpeed', data=test_series, kind="reg")
+
+        '''Pair Plot'''
+        #sns.pairplot(test_series, hue='country', palette='coolwarm')
+
+        '''Rugplot'''
+        #sns.rugplot(test_series['fastestLapSpeed'])
+
+        '''Barplot Categorical'''
+        sns.barplot(x='country',y='fastestLapSpeed', data=test_series)
+
+        plt.xticks(rotation=70)
+        plt.tight_layout()
         plt.show()
+
+
 
 
 
